@@ -16,7 +16,7 @@
 #define CONVERT_TO_UNSIGNED 2
 
 /**
- * Structure representing parameters for the formatting.
+ * struct Parameters - params_t
  *
  * @unsign: flag indicating if the value is unsigned.
  *
@@ -35,7 +35,7 @@
 
 typedef struct Parameters
 {
-
+	unsigned int unsign    : 1;
 	unsigned int plus_flag : 1;
 	unsigned int space_flag : 1;
 	unsigned int hashtag_flag : 1;
@@ -48,7 +48,7 @@ typedef struct Parameters
 } params_t;
 
 /**
- * Structure representing a format specifier.
+ * struct Specifier - specifier_t
  *
  * @specifier: the format token.
  * @f: the associated function.
