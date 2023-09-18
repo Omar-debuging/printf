@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * _print_str_asc - writes string
  * @arg: arg
