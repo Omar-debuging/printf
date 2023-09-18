@@ -1,63 +1,38 @@
 #include "main.h"
 
 /**
- *_printf - prints anything
- *@format: the format string
+ * _printf - writes formatted output
+ * @format: the format
  *
- *Return: number of bytes printed
+ * Return: success characters.
  */
-
-int _printf(const char *format, ...)
+int _printf(const char * const format, ...)
 {
-	int count = 0;
+	int write = 0;
 	va_list args;
+	specifier specifiers[] = {
+		{"%", _print_percent},
+		{"c", _print_char},
+		{"s", _print_str},
+		{"S", _print_str_asc},
+		{"d", _print_digit},
+		{"i", _print_digit},
+		{"b", _print_binary},
+		{"u", _print_unsigned},
+		{"o", _print_octal},
+		{"x", _print_hex},
+		{"X", _print_hex_maj},
+		{"R", _print_str_rot},
+		{"r", _print_str_rev},
+		{"p", _print_ptr},
+		{NULL, NULL}
+	};
 
-	va_start(args, format);
-	if (!format || !format[0])
-	{
+	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
-	}
-	while (*format)
-	{
-		if (*format == '%')
-		{
-			format++;
-			if (*format == 'c')
-			{
-				char c = va_arg(args, int);
-
-				_putchar(c);
-				count++;
-			}
-			else if (*format == 's')
-			{
-				char *str = va_arg(args, char*);
-
-				count += handle_string(str);
-			}
-			else if (*format == '%')
-			{
-				_putchar('%');
-				count++;
-			}
-			else
-			{
-				_putchar('%');
-				count++;
-				if (*format)
-				{
-					_putchar(*format);
-					count++;
-				}
-			}
-			format++;
-		}
-		else
-		{
-			_putchar(*format);
-			format++;
-			count++;
-		}
-	}
-	return (count);
+	va_start(args, format);
+	write = loopFunction(format, args, specifiers);
+	_putchar_val(-2);
+	va_end(args);
+	return (write);
 }
