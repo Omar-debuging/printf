@@ -7,7 +7,7 @@
  */
 int _print_str(va_list arg)
 {
-	int suc = 0;
+	int success = 0;
 	char *str;
 
 	str = va_arg(arg, char *);
@@ -20,10 +20,10 @@ int _print_str(va_list arg)
 	while (*str)
 	{
 		if (_putchar(str) > 0)
-			suc++;
+			success++;
 		str++;
 	}
-	return (suc);
+	return (success);
 }
 /**
  * _print_percent - writes percent
