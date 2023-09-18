@@ -61,8 +61,8 @@ typedef struct Specifier
 } specifier_t;
 
 /* Module: _put.c */
-int put_string(char *str);
-int put_char(int c);
+int handle_string(char *str);
+int _putchar(int c);
 
 /* print_function.c */
 int print_character(va_list ap, params_t *params);
@@ -109,6 +109,7 @@ char *get_specified_precision(char *p, params_t *params, va_list ap);
 
 /* _printf.c */
 int custom_printf(const char *format, ...);
+int _printf(const char *format, ...);
 
 #endif
 
