@@ -7,23 +7,18 @@
  */
 int _print_str(va_list arg)
 {
-	int suc = 0;
+	int i;
 	char *str;
 
 	str = va_arg(arg, char *);
 
-	if (!str || str == NULL)
+	if (str == NULL)
 	{
 		str = "(null)";
 	}
-
-	while (*str)
-	{
-		if (_putchar(str) > 0)
-			suc++;
-		str++;
-	}
-	return (suc);
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
+	return (i);
 }
 /**
  * _print_percent - writes percent
