@@ -11,7 +11,7 @@ int _printf(const char * const format, ...)
 	int write = 0;
 	va_list args;
 	specifier specifiers[] = {
-		{"%", _print_percent},
+		{"%", _print_per},
 		{"c", _print_char},
 		{"s", _print_str},
 		{"S", _print_str_asc},
@@ -21,7 +21,7 @@ int _printf(const char * const format, ...)
 		{"u", _print_unsigned},
 		{"o", _print_octal},
 		{"x", _print_hex},
-		{"X", _print_hex_maj},
+		{"X", _print_hex_upp},
 		{"R", _print_str_rot},
 		{"r", _print_str_rev},
 		{"p", _print_ptr},

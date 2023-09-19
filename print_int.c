@@ -3,34 +3,34 @@
 
 /**
  * _handle_print_unsigned_int - prints unsgined
- * @digit: number
- * @writeCount: number
+ * @d: number
+ * @Count: number
  *
  * Return: write count
 */
-int _handle_print_unsigned_int(unsigned int digit, int writeCount)
+int _handle_print_unsigned_int(unsigned int d, int Count)
 {
 	int i = 0;
 	char s[1000];
 
-	if (digit == 0)
+	if (d == 0)
 	{
 		_putchar_val('0');
 		return (1);
 	}
-	if (digit < 10)
+	if (d < 10)
 	{
-		_putchar_val('0' + digit);
-		return (++writeCount);
+		_putchar_val('0' + d);
+		return (++Count);
 	}
-	while (digit > 0)
+	while (d > 0)
 	{
-		s[i++] = ('0' + digit % 10);
-		digit /= 10;
+		s[i++] = ('0' + d % 10);
+		d /= 10;
 	}
 	s[i] = '\0';
-	writeCount += _reverse_print(s);
-	return (writeCount);
+	Count += _reverse_print(s);
+	return (Count);
 }
 /**
  * _print_digit - print integers, not the
