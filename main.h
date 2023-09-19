@@ -23,11 +23,11 @@ typedef struct Specifier
 int _putchar(char c);
 int _puts(char *str);
 int _print_str(va_list arg);
-int _print_percent(void);
+int _print_percent(va_list __attribute__((__unused__)) arg);
 int _print_char(va_list arg);
 int _printf(const char *format, ...);
 int loopFunction(const char *format, specifier specifiers[], va_list args)
-int _print_digit(int n);
+int _print_digit(va_list args);
 int _print_unsigned(unsigned int n);
 int _print_octal(va_list args);
 int _print_hex(va_list args);

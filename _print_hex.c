@@ -22,7 +22,7 @@ int _print_hex(va_list args)
 	if ((int)n < 0)
 	{
 		_putchar('0');
-		len = pr_num((int)-n);
+		len = _pr_int((int)-n);
 	}
 	else
 	{
@@ -61,7 +61,7 @@ int _print_hex_maj(va_list args)
 	if ((int)n < 0)
 	{
 		_putchar('-');
-		len = _print_digit((int)-n);
+		len = _pr_int((int)-n);
 	}
 	else
 	{
@@ -76,4 +76,4 @@ int _print_hex_maj(va_list args)
 
 	return (len);
 }
-}
+
