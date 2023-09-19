@@ -7,9 +7,9 @@
 #define BUFFER_LEN 1024
 
 /**
- * struct specifier - ee
- * @code: type
- * @f: type
+ * struct specifier - specifier
+ * @code: specifier
+ * @f: function associated to each code
  *
  */
 typedef struct specifier
@@ -26,7 +26,7 @@ int _print_per(void);
 int _print_char(va_list arg);
 int _printf(const char *format, ...);
 int loopFunction(const char *format, va_list va, specifier specifiers[]);
-int handle_args(const char *format, int *index, va_list args, specifier specifiers[]);
+int manage_args(const char *format, int *index, va_list args, specifier specifiers[]);
 int _print_digit(va_list args);
 int _print_unsigned(va_list args);
 int _print_octal(va_list args);

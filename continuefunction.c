@@ -10,16 +10,16 @@
 */
 int loopFunction(const char *format, va_list args, specifier specifiers[])
 {
-	int write = 0, tmp, index = 0;
+	int write = 0, tp, index = 0;
 
 	while (format[index])
 	{
 		if (format[index] == '%')
 		{
-			tmp = handle_args(format, &index, args, specifiers);
-			if (tmp == -1)
+			tp = handle_args(format, &index, args, specifiers);
+			if (tp == -1)
 				return (-1);
-			write += tmp;
+			write += tp;
 			(index)++;
 			continue;
 		}
@@ -30,15 +30,15 @@ int loopFunction(const char *format, va_list args, specifier specifiers[])
 }
 
 /**
- * handle_args - handling percent args
+ * manage_args - handling percent args
  * @format: format string
  * @index: index string
- * @args: va
- * @protos: va
+ * @args: ap
+ * @specifiers: ap
  *
- * Return: writes
+ * Return: write
 */
-int handle_args(const char *format, int *index, va_list args, specifier specifiers[])
+int manage_args(const char *format, int *index, va_list args, specifier specifiers[])
 {
 	int n_specifiers, i = 0, size = -1;
 
