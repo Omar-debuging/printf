@@ -45,5 +45,6 @@ char *int_to_octal(unsigned int n);
 char *int_to_hex(int n);
 char *int_to_heX(int n);
 int base_len(int n, int dev);
+int _pr_int(int n);
 
 #endif

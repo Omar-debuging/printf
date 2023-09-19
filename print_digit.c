@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * _print_digit - print integers, not the  most efficient
+ * _pr_int - print integers, not the  most efficient
  * @args: argument
  *
  * Return: writes
  */
-int _print_digit(int n)
+int _pr_int(int n)
 {
 	int len;
 	int dev;
@@ -36,6 +36,25 @@ int _print_digit(int n)
 		len++;
 	}
 	return (len);
+}
+
+/**
+ * _print_digit - Prints an integer
+ * @args: list of arguments
+ * Return: Will return the amount of characters printed.
+ */
+
+
+int _print_digit(va_list args)
+{
+	int count;
+	int n;
+
+	n = va_arg(args, int);
+
+	count = pr_int(n);
+
+	return (count);
 }
 /**
  * _print_unsigned - prints unsgined
