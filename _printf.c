@@ -12,18 +12,18 @@ int _printf(const char * const format, ...)
 	va_list args;
 	specifier specifiers[] = {
 		{"%", _print_per},
-		{"c", _print_char},
+		{"c", print_char},
 		{"s", _print_str},
 		{"S", _print_str_asc},
-		{"d", _print_digit},
-		{"i", _print_digit},
-		{"b", _print_binary},
-		{"u", _print_unsigned},
+		{"d", print_int},
+		{"i", print_int},
+		{"b", print_binary},
+		{"u", print_unsigned},
 		{"o", _print_octal},
 		{"x", _print_hex},
 		{"X", _print_hex_upp},
 		{"R", _print_str_rot},
-		{"r", _print_str_rev},
+		{"r", print_str_rev},
 		{"p", _print_ptr},
 		{NULL, NULL}
 	};
