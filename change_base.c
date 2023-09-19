@@ -43,7 +43,7 @@ char *int_to_binary(int n)
 		is_p = 0;
 	}
 	len = base_len(n, 2);
-	bin = malloc(sizeof(char) * (len + 1));
+	bin = (char *)malloc(sizeof(char) * (len + 1));
 	if (bin == NULL)
 	{
 		return (NULL);
@@ -74,7 +74,7 @@ char *int_to_octal(unsigned int n)
 	char *reversed;
 
 	len = base_len(n, 8);
-	octal = malloc(sizeof(char) * (len + 1));
+	octal = (char *)malloc(sizeof(char) * (len + 1));
 	if (octal == NULL)
 	{
 		return (NULL);
@@ -108,7 +108,7 @@ char *int_to_hex(int n)
 	int mod;
 
 	len = base_len(n, 16);
-	hex = malloc(sizeof(char) * (len + 1));
+	hex = (char *)malloc(sizeof(char) * (len + 1));
 	if (hex == NULL)
 	{
 		return (NULL);
@@ -149,7 +149,7 @@ char *int_to_heX(int n)
 	int mod;
 
 	len = base_len(n, 16);
-	hex = malloc(sizeof(char) * (len + 1));
+	hex = (char *)malloc(sizeof(char) * (len + 1));
 	if (hex == NULL)
 	{
 		return (NULL);

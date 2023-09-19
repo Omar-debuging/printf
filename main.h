@@ -1,5 +1,5 @@
-#ifndef WRITEFUNCTION
-#define WRITEFUNCTION
+#ifndef MAIN_H
+#define MAIN_H
 #define BUFFER_LEN 1024
 
 #include <stdio.h>

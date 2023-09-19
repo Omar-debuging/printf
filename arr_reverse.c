@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdlib.h>
 
 /**
  * arr_rev - reverse an array in-place
@@ -19,7 +20,7 @@ char *arr_rev(char *arr)
 	while (arr[length] != '\0')
 		length++;
 
-	reversed = malloc(length + 1);
+	reversed = (char *)malloc(length + 1);
 	if (reversed == NULL)
 	{
 		return (NULL);
