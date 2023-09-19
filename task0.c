@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
- * pr_char - prints a single char
+ * _print_char - prints a single char
  *
  * @arg: arguments list
  *
@@ -17,7 +17,7 @@ int _print_char(va_list arg)
 	return (1);
 }
 /**
- * pr_string - prints a string
+ * _print_str - prints a string
  *
  * @arg: arguments list
  *
@@ -39,7 +39,7 @@ int _print_str(va_list arg)
 	return (i);
 }
 /**
- * pr_percent - prints a single percent
+ * _print_percent - prints a single percent
  *
  * @arg: arguments list
  *
