@@ -40,6 +40,18 @@ int _print_str_rot(va_list arg);
 int _handle_print_hex(unsigned long decimalnum, char maj);
 int _print_str_rev(va_list arg);
 int _print_ptr(va_list arg);
+<<<<<<< HEAD
 
+=======
+int pr_hexa_char(char c);
+char *int_to_binary(int n);
+char *arr_rev(char *arr);
+char *int_to_octal(unsigned int n);
+char *int_to_hex(int n);
+char *int_to_heX(int n);
+int base_len(int n, int dev);
+int _pr_int(int n);
+char *convert_to_hex(unsigned long int num, int uppercase);
+>>>>>>> 33bff68ba4c3cb101777b3f097f66fbcb347c120
 
 #endif
