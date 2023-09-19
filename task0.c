@@ -1,9 +1,27 @@
 #include "main.h"
+
+#include "main.h"
+
 /**
- * _print_str - write string
- * @arg: arg
+ * pr_char - prints a single char
  *
- * Return: number of character printed
+ * @arg: arguments list
+ *
+ * Return: number of characters printed
+ */
+int _print_char(va_list arg)
+{
+	char c = va_arg(arg, int);
+
+	_putchar(c);
+	return (1);
+}
+/**
+ * pr_string - prints a string
+ *
+ * @arg: arguments list
+ *
+ * Return: number of characters printed
  */
 int _print_str(va_list arg)
 {
@@ -21,25 +39,15 @@ int _print_str(va_list arg)
 	return (i);
 }
 /**
- * _print_percent - writes percent
+ * pr_percent - prints a single percent
  *
- * Return: success characters.
+ * @arg: arguments list
+ *
+ * Return: number of characters printed
  */
+
 int _print_percent(void)
 {
 	_putchar('%');
-	return (1);
-}
-/**
- * _print_char - writes character
- * @arg: arg
- *
- * Return: success characters.
- */
-int _print_char(va_list arg)
-{
-	char c = va_arg(arg, int);
-
-	_putchar(c);
 	return (1);
 }
