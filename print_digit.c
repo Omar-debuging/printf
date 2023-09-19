@@ -52,7 +52,7 @@ int _print_digit(va_list args)
 
 	n = va_arg(args, int);
 
-	count = pr_int(n);
+	count = _pr_int(n);
 
 	return (count);
 }
