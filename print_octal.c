@@ -8,15 +8,16 @@
  */
 int _print_octal(va_list args)
 {
-	unsigned int o = 0, num = 0;
-	int i = 1;
+	unsigned int o, num = 0;
+	int base = 1;
 
-	num = va_arg(args, long int);
+	o = 0;
+	num = va_arg(args, unsigned int);
 	while (num != 0)
 	{
-		o += (num % 8) * i;
+		o += (num % 8) * base;
 		num /= 8;
-		i *= 10;
+		base *= 10;
 	}
 	return (manage_print_unsigned_int(o, 0));
 }
