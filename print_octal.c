@@ -18,5 +18,5 @@ int _print_octal(va_list args)
 		num /= 8;
 		i *= 10;
 	}
-	return (_handle_print_unsigned_int(o, 0));
+	return (manage_print_unsigned_int(o, 0));
 }

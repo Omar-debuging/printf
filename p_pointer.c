@@ -35,7 +35,7 @@ int _print_ptr(va_list arg)
 	{
 		_putchar_val('0');
 		_putchar_val('x');
-		return (2 + _reverse_print(addStr));
+		return (2 + reverse_print(addStr));
 	}
 	return (0);
 }

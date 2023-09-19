@@ -10,7 +10,7 @@
 int _print_hex_helper(unsigned long num, char maj)
 {
 	unsigned long q, r;
-	char num[100];
+	char hexnum[100];
 	int j;
 
 	j = 0;
@@ -20,13 +20,13 @@ int _print_hex_helper(unsigned long num, char maj)
 	{
 		r = q % 16;
 		if (r < 10)
-			num[j++] = '0' + r;
+			hexnum[j++] = '0' + r;
 		else
-			num[j++] = maj + r - 10;
+			hexnum[j++] = maj + r - 10;
 		q /= 16;
 	}
-	num[j] = '\0';
-	return (_reverse_print(num));
+	hexnum[j] = '\0';
+	return (reverse_print(hexnum));
 }
 
 /**
