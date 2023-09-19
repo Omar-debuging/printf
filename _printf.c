@@ -9,7 +9,7 @@
 int _printf(const char * const format, ...)
 {
 	int write = 0;
-	va_list args;
+	va_list ap;
 	specifier specifiers[] = {
 		{"%", _print_percent},
 		{"c", _print_char},
@@ -31,7 +31,7 @@ int _printf(const char * const format, ...)
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	va_start(args, format);
-	write = loopFunction(format, specifiers, args);
-	va_end(args);
+	write = loopFunction(format, specifiers, ap);
+	va_end(ap);
 	return (write);
 }

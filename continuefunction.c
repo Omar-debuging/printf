@@ -8,7 +8,7 @@
  *
  * Return: nothing
 */
-int loopFunction(const char *format, specifier specifiers[], va_list args)
+int loopFunction(const char *format, specifier specifiers[], va_list ap)
 {
 	int i, j, val, count;
 
@@ -21,7 +21,7 @@ int loopFunction(const char *format, specifier specifiers[], va_list args)
 			{
 				if (format[i + 1] == specifiers[j].code[0])
 				{
-					val = specifiers[j].f(args);
+					val = specifiers[j].f(ap);
 					if (val == -1)
 						return (-1);
 					count += val;
