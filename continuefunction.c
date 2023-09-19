@@ -3,12 +3,12 @@
 /**
  * loopFunction - continue
  * @format: format string
- * @args: args
  * @specifiers: va
+ * @args: args
  *
  * Return: nothing
 */
-int loopFunction(const char *format, va_list args, specifier specifiers[])
+int loopFunction(const char *format, specifier specifiers[], va_list args)
 {
 	int i, j, val, count;
 

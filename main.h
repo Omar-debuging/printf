@@ -14,10 +14,10 @@
  * @f: function associated
  *
  */
-typedef struct specifier
+typedef struct Specifier
 {
 	char *code;
-	int (*f)();
+	int (*f)(va_list arg);
 } specifier;
 
 int _putchar(char c);

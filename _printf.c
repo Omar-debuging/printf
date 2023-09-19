@@ -31,7 +31,7 @@ int _printf(const char * const format, ...)
 	if (!format || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	va_start(args, format);
-	write = loopFunction(format, args, specifiers);
+	write = loopFunction(format, specifiers, args);
 	va_end(args);
 	return (write);
 }
