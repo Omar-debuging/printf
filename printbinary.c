@@ -8,7 +8,7 @@
 */
 int print_binary(va_list args)
 {
-	char arr[10000];
+	char array[10000];
 	unsigned int d = va_arg(args, unsigned int);
 	int i = 0;
 
@@ -19,9 +19,9 @@ int print_binary(va_list args)
 	}
 	while (d)
 	{
-		arr[i++] = '0' + (d % 2);
+		array[i++] = '0' + (d % 2);
 		d /= 2;
 	}
 
-	return (reverse_print(arr));
+	return (reverse_print(array));
 }
