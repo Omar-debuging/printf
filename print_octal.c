@@ -8,16 +8,31 @@
  */
 int _print_octal(va_list args)
 {
-	unsigned int octal, decimal = 0;
-	int i = 1;
+	unsigned int n;
+	char *octal;
+	int len = 0;
 
-	octal = 0;
-	decimal = va_arg(args, long int);
-	while (decimal != 0)
+	n = va_arg(args, unsigned int);
+
+	if (n == 0)
 	{
-		octal += (decimal % 8) * i;
-		decimal /= 8;
-		i *= 10;
+		_putchar('0');
+		return (1);
 	}
-	return (_handle_print_unsigned_int(octal, 0));
+	if ((int)n < 0)
+	{
+		_putchar('-');
+		len = _print_digit((int)-n);
+	}
+	else
+	{
+		octal = int_to_octal((int)n);
+		if (octal == NULL)
+			return (-1);
+
+		len = _puts(octal);
+		free(octal);
+	}
+
+	return (len);
 }

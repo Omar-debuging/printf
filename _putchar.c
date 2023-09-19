@@ -1,35 +1,6 @@
 #include "main.h"
 
 /**
- * _writer - buffer writer
- * @c: char
- *
- * Return: number of byte printed
-*/
-int _writer(const char c)
-{
-	static int i;
-	int j = 0;
-	static char buffer[BUFFER_LEN];
-
-	if (c == -2 || i == BUFFER_LEN - 1)
-	{
-		if (c != -2)
-			buffer[i++] = c;
-		while (j < i)
-		{
-			write(1, (buffer + j), 1);
-			j++;
-		}
-		i = 0;
-		return (1);
-	}
-
-	buffer[i++] = c;
-	return (1);
-}
-
-/**
  * _putchar - writes the character c to stdout
  * @c: character to print
  *
@@ -41,14 +12,3 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 
-/**
- * _putchar_val - writes the character c to stdout
- * @c: The character to print
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _putchar_val(const char c)
-{
-	return (_writer(c));
-}

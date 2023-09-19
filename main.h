@@ -21,14 +21,12 @@ typedef struct specifier
 } specifier;
 
 int _putchar(char c);
-int _putchar_val(const char c);
-int _writer(const char c);
+int _puts(char *str);
 int _print_str(va_list arg);
 int _print_percent(void);
 int _print_char(va_list arg);
 int _printf(const char *format, ...);
-int loopFunction(const char *format, va_list va, specifier specifiers[]);
-int handle_args(const char *format, int *index, va_list args, specifier specifiers[]);
+int loopFunction(const char *format, va_list args, specifier specifiers[]);
 int _print_digit(int n);
 int _print_unsigned(unsigned int n);
 int _print_octal(va_list args);
@@ -46,5 +44,6 @@ char *arr_rev(char *arr);
 char *int_to_octal(unsigned int n);
 char *int_to_hex(int n);
 char *int_to_heX(int n);
+int base_len(int n, int dev);
 
 #endif

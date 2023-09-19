@@ -3,7 +3,7 @@
 /**
  * loopFunction - continue
  * @format: format string
- * @args: va
+ * @args: args
  * @specifiers: va
  *
  * Return: nothing
