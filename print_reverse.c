@@ -29,7 +29,7 @@ int reverse_print(const char *s)
 */
 int print_str_rev(va_list arg)
 {
-	char *text = va_arg(arg, char *);
+	char *list = va_arg(arg, char *);
 
-	return (reverse_print(text));
+	return (reverse_print(list));
 }

@@ -1,16 +1,14 @@
 #include "main.h"
 
 /**
- * _print_char - writes char
+ * print_char - write a character
  * @arg: arg
  *
- * Return: success characters.
+ * Return: success character
  */
-int _print_char(va_list arg)
+int print_char(va_list arg)
 {
-	char c;
-
-	c = va_arg(arg, int);
+	char c = va_arg(arg, int);
 
 	_putchar_val(c);
 

@@ -2,13 +2,13 @@
 #include <unistd.h>
 
 /**
- * _handle_print_unsigned_int - prints unsgined
+ * manage_print_unsigned_int - prints unsgined
  * @d: number
  * @Count: number
  *
  * Return: write count
 */
-int _handle_print_unsigned_int(unsigned int d, int Count)
+int manage_print_unsigned_int(unsigned int d, int Count)
 {
 	int i = 0;
 	char s[1000];
@@ -29,39 +29,38 @@ int _handle_print_unsigned_int(unsigned int d, int Count)
 		d /= 10;
 	}
 	s[i] = '\0';
-	Count += _reverse_print(s);
+	Count += reverse_print(s);
 	return (Count);
 }
 /**
- * _print_digit - print integers, not the
- * most efficient
+ * print_int - print integers
  * @args: argument
  *
  * Return: writes
  */
 
-int _print_digit(va_list args)
+int print_int(va_list args)
 {
 	int digit = va_arg(args, int);
-	int writeCount = 0;
+	int count = 0;
 
 	if (digit < 0)
 	{
 		digit *= -1;
 		_putchar_val('-');
-		writeCount++;
+		count++;
 	}
-	return (_handle_print_unsigned_int(digit, writeCount));
+	return (manage_print_unsigned_int(digit, count));
 }
 /**
- * _print_unsigned - prints unsgined
+ * print_unsigned - prints unsgined
  * @args: arguments
  *
  * Return: write count
 */
-int _print_unsigned(va_list args)
+int print_unsigned(va_list args)
 {
 	unsigned int digit = va_arg(args, unsigned int);
 
-	return (_handle_print_unsigned_int(digit, 0));
+	return (manage_print_unsigned_int(digit, 0));
 }
