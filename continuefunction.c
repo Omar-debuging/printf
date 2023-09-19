@@ -6,7 +6,7 @@
  * @args: ap
  * @specifiers: ap
  *
- * Return: nothing
+ * Return: write
 */
 int loopFunction(const char *format, va_list args, specifier specifiers[])
 {
@@ -16,7 +16,7 @@ int loopFunction(const char *format, va_list args, specifier specifiers[])
 	{
 		if (format[index] == '%')
 		{
-			tp = handle_args(format, &index, args, specifiers);
+			tp = manage_args(format, &index, args, specifiers);
 			if (tp == -1)
 				return (-1);
 			write += tp;

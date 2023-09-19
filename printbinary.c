@@ -1,12 +1,12 @@
 #include "main.h"
 
 /**
- * _print_binary - prints
+ * print_binary - print binary number
  * @args: argument
  *
  * Return: count
 */
-int _print_binary(va_list args)
+int print_binary(va_list args)
 {
 	char arr[10000];
 	unsigned int d = va_arg(args, unsigned int);
@@ -23,5 +23,5 @@ int _print_binary(va_list args)
 		d /= 2;
 	}
 
-	return (_reverse_print(arr));
+	return (reverse_print(arr));
 }

@@ -1,19 +1,19 @@
 #include "main.h"
 
 /**
- * _reverse_print - prints strings in reverse
+ * reverse_print - prints strings in reverse
  * @s: string input
  *
  * Return: print count
 */
-int _reverse_print(const char *s)
+int reverse_print(const char *s)
 {
-	int _len = 0, i = 0, count = 0;
+	int len = 0, i = 0, count = 0;
 
-	while (s[_len])
-		_len++;
+	while (s[len])
+		len++;
 
-	for (i = _len - 1; i >= 0; i--)
+	for (i = len - 1; i >= 0; i--)
 	{
 		count += _putchar((s + i));
 	}
@@ -22,14 +22,14 @@ int _reverse_print(const char *s)
 }
 
 /**
- * _print_str_rev - prints strings in reverse
+ * print_str_rev - prints strings in reverse
  * @arg: string input
  *
  * Return: print count
 */
-int _print_str_rev(va_list arg)
+int print_str_rev(va_list arg)
 {
 	char *text = va_arg(arg, char *);
 
-	return (_reverse_print(text));
+	return (reverse_print(text));
 }
