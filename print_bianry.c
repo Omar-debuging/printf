@@ -8,20 +8,19 @@
 */
 int _print_binary(va_list args)
 {
-	char arr[10000];
-	unsigned int s = va_arg(args, unsigned int);
-	int i = 0;
+	int len = 0;
+	unsigned int n = va_arg(args, unsigned int);
+	char *bin = int_to_binary(n);
 
-	if (s == 0)
+	if (bin == NULL)
+		return (-1);
+	if (n == 0)
 	{
-		_putchar_val('0');
+		_putchar('0');
 		return (1);
 	}
-	while (s)
-	{
-		arr[i++] = '0' + (s % 2);
-		s /= 2;
-	}
+	for (len = 0; bin[len] != '\0'; len++)
+		_putchar(bin[len]);
 
-	return (_reverse_print(arr));
+	return (len);
 }

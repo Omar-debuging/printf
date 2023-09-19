@@ -6,36 +6,48 @@
  *
  * Return: success characters.
  */
-int _print_str_asc(va_list arg)
+int _print_str_asc(va_list args)
 {
-	int success = 0, x = 0;
-	char *str;
+	int count = 0;
+	int i = 0;
+	char *str = va_arg(args, char *);
 
-	str = va_arg(arg, char *);
-
-	if (!str || str == NULL)
+	if (str == NULL)
 	{
 		str = "(null)";
 	}
 
-	while (*str)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (*str < 32 || *str >= 127)
+		if (str[i] < 32 || str[i] >= 127)
 		{
-			_putchar_val('\\');
-			_putchar_val('x');
-			x = *str - '0' + 48;
-			if (x < 16)
-			{
-				_putchar_val('0');
-				success += 3 + _handle_print_hex(*str - '0' + 48, 'A');
-			}
-			else
-				success += 2 + _handle_print_hex(*str - '0' + 48, 'A');
+			_putchar('\\');
+			_putchar('x');
+			count += 2;
+			count += pr_hexa_char(str[i]);
 		}
-		else if (_putchar(str) > 0)
-			success++;
-		str++;
+		else
+		{
+			_putchar(str[i]);
+			count++;
+		}
 	}
-	return (success);
+
+	return (count);
+}
+/**
+ * pr_hexa_char - Prints a character in hexadecimal format
+ * @c: The character to be printed
+ * Return: The number of characters printed
+ */
+int pr_hexa_char(char c)
+{
+	char hex_digits[] = "0123456789ABCDEF";
+	int count = 0;
+
+	_putchar(hex_digits[(c >> 4) & 0xF]);
+	_putchar(hex_digits[c & 0xF]);
+	count += 2;
+
+	return (count);
 }

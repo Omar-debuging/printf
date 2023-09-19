@@ -1,56 +1,41 @@
 #include "main.h"
-#include <unistd.h>
 
-/**
- * _handle_print_unsigned_int - prints unsgined
- * @digit: number
- * @writeCount: number
- *
- * Return: write count
-*/
-int _handle_print_unsigned_int(unsigned int digit, int writeCount)
-{
-	int i = 0;
-	char s[1000];
-
-	if (digit == 0)
-	{
-		_putchar_val('0');
-		return (1);
-	}
-	if (digit < 10)
-	{
-		_putchar_val('0' + digit);
-		return (++writeCount);
-	}
-	while (digit > 0)
-	{
-		s[i++] = ('0' + digit % 10);
-		digit /= 10;
-	}
-	s[i] = '\0';
-	writeCount += _reverse_print(s);
-	return (writeCount);
-}
 /**
  * _print_digit - print integers, not the  most efficient
  * @args: argument
  *
  * Return: writes
  */
-
-int _print_digit(va_list args)
+int _print_digit(int n)
 {
-	int digit = va_arg(args, int);
-	int writeCount = 0;
+	int len;
+	int dev;
+	unsigned int num;
 
-	if (digit < 0)
+	len = 0;
+	dev = 1;
+
+	if (n < 0)
 	{
-		digit *= -1;
-		_putchar_val('-');
-		writeCount++;
+		_putchar('-');
+		num = n * (-1);
+		len++;
+	} else
+	{
+		num = n;
 	}
-	return (_handle_print_unsigned_int(digit, writeCount));
+	while (num / dev > 9)
+	{
+		dev *= 10;
+	}
+	while (dev != 0)
+	{
+		_putchar((num / dev) + '0');
+		num = num % dev;
+		dev /=  10;
+		len++;
+	}
+	return (len);
 }
 /**
  * _print_unsigned - prints unsgined
@@ -58,9 +43,27 @@ int _print_digit(va_list args)
  *
  * Return: write count
 */
-int _print_unsigned(va_list args)
+int _print_unsigned(unsigned int n)
 {
-	unsigned int digit = va_arg(args, unsigned int);
+	int div;
+	int len;
+	unsigned int num;
 
-	return (_handle_print_unsigned_int(digit, 0));
+	div = 1;
+	len = 0;
+
+	num = n;
+
+	while (num / div > 9)
+		div *= 10;
+
+	while (div != 0)
+	{
+		len++;
+		_putchar('0' + num / div);
+		num %= div;
+		div /= 10;
+	}
+	return (len);
 }
+

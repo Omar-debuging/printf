@@ -36,9 +36,9 @@ int _writer(const char c)
  * Return: On success 1.
  * On error, -1 is returned, and errno is set appropriately.
  */
-int _putchar(const char *c)
+int _putchar(char c)
 {
-	return (_writer(*c));
+	return (write(1, &c, 1));
 }
 
 /**

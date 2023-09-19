@@ -3,27 +3,22 @@
  * _print_str - write string
  * @arg: arg
  *
- * Return: suc character
+ * Return: number of character printed
  */
 int _print_str(va_list arg)
 {
-	int success = 0;
+	int i;
 	char *str;
 
 	str = va_arg(arg, char *);
 
-	if (!str || str == NULL)
+	if (str == NULL)
 	{
 		str = "(null)";
 	}
-
-	while (*str)
-	{
-		if (_putchar(str) > 0)
-			success++;
-		str++;
-	}
-	return (success);
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
+	return (i);
 }
 /**
  * _print_percent - writes percent
@@ -32,9 +27,7 @@ int _print_str(va_list arg)
  */
 int _print_percent(void)
 {
-	char p = '%';
-
-	_putchar(&p);
+	_putchar('%');
 	return (1);
 }
 /**
@@ -45,11 +38,8 @@ int _print_percent(void)
  */
 int _print_char(va_list arg)
 {
-	char c;
+	char c = va_arg(arg, int);
 
-	c = va_arg(arg, int);
-
-	_putchar_val(c);
-
+	_putchar(c);
 	return (1);
 }

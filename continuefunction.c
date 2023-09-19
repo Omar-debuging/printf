@@ -10,50 +10,41 @@
 */
 int loopFunction(const char *format, va_list args, specifier specifiers[])
 {
-	int successWrites = 0, tmp, index = 0;
+	int i, j, val, count;
 
-	while (format[index])
+	count = 0;
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[index] == '%')
+		if (format[i] == '%')
 		{
-			tmp = handle_args(format, &index, args, specifiers);
-			if (tmp == -1)
-				return (-1);
-			successWrites += tmp;
-			(index)++;
-			continue;
+			for (j = 0; specifiers[j].code != NULL; j++)
+			{
+				if (format[i + 1] == specifiers[j].code[0])
+				{
+					val = specifiers[j].f(args);
+					if (val == -1)
+						return (-1);
+					count += val;
+					break;
+				}
+			}
+			if (specifiers[j].code == NULL && format[i + 1] != ' ')
+			{
+				if (format[i + 1] != '\0')
+				{
+					_putchar(format[i]);
+					_putchar(format[i + 1]);
+					count += 2;
+				} else
+					return (-1);
+			}
+			i++;
 		}
-		successWrites += _putchar(&format[index]);
-		index++;
-	}
-	return (successWrites);
-}
-/**
- * handle_args - handling percent args
- * @format: format string
- * @index: index string
- * @args: va
- * @specifiers: va
- *
- * Return: writes
-*/
-int handle_args(const char *format, int *index, va_list args, specifier specifiers[])
-{
-	int n_specifiers, i = 0, size = -1;
-
-	(*index)++;
-	n_specifiers = 14;
-	if (!format[*index] || format[*index] == '\0')
-		return (-1);
-	for (i = 0; i < n_specifiers; i++)
-	{
-		if (*specifiers[i].code == format[*index])
+		else
 		{
-			size = specifiers[i].f(args);
-			return (size);
+			_putchar(format[i]);
+			count++;
 		}
 	}
-	if (!format[*index + 1])
-		return (-1);
-	return (_putchar_val('%') + _putchar(&format[*index]));
+	return (count);
 }

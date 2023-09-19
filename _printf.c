@@ -30,7 +30,6 @@ int _printf(const char * const format, ...)
 		return (-1);
 	va_start(args, format);
 	write = loopFunction(format, args, specifiers);
-	_putchar_val(-2);
 	va_end(args);
 	return (write);
 }
