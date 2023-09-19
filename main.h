@@ -46,5 +46,7 @@ char *int_to_hex(int n);
 char *int_to_heX(int n);
 int base_len(int n, int dev);
 int _pr_int(int n);
+int _print_ptr(va_list arg);
+char *convert_to_hex(unsigned long int num, int uppercase);
 
 #endif
